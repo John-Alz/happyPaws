@@ -6,6 +6,8 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import Hero from '../components/Hero.jsx'
 import BestWalkers from '../components/BestWalkers.jsx'
+import Footer from '../components/Footer.jsx'
+import Bento from '../components/Bento.jsx'
 
 export default function Home() {
 
@@ -31,8 +33,10 @@ export default function Home() {
         <div className='absolute z-[-1] top-0 left-0 right-0'>
             <Hero />
             <BestWalkers />
-            <p>{data.name}</p>
-            <p>{data.role}</p>
+            <Bento />
+            {/* <p>{data.name}</p>
+            <p>{data.role}</p> */}
+            <Footer />
         </div>
     )
 }

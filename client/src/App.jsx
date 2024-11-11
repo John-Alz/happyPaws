@@ -7,6 +7,7 @@ import RegisterOwner from "./components/auth/RegisterOwner"
 import Login from "./components/auth/Login"
 import Home from "./pages/Home"
 import Header from "./components/Header"
+import DetailWaker from "./components/DetailWaker"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/register/walker" element={<RegisterWalker />} />
           <Route path="/register/owner" element={<RegisterOwner />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/paseador/:id" element={<DetailWaker />} />
         </Routes>
       </BrowserRouter>
     </>

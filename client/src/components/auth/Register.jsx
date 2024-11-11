@@ -8,7 +8,6 @@ import Header from '../Header';
 export default function Register() {
     return (
         <div>
-            <Header />
             <section className='w-7/12 h-[80vh] m-auto flex justify-between items-center'>
                 <Link to={'/register/walker'}>
                     <div className='w-[400px] flex justify-between border-b-2 py-6 cursor-pointer'>
