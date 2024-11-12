@@ -48,6 +48,18 @@ export const getPet = async (req, res) => {
     }
 }
 
+export const getPetsOwner = async (req, res) => {
+    let owner = req.params.owner
+    try {
+        let pet = await Pet.find({ owner: owner })
+
+        res.json(pet)
+
+    } catch (error) {
+        res.status(500), res.json({ message: error.message })
+    }
+}
+
 
 export const putPet = async (req, res) => {
     let id = req.params.id;

@@ -8,6 +8,7 @@ export default function RegisterOwner() {
 
     const [input, setInput] = useState({
         name: '',
+        photo: '',
         email: '',
         password: '',
         contactPhone: '',
@@ -16,6 +17,7 @@ export default function RegisterOwner() {
 
     const user = {
         name: input.name,
+        photo: input.photo,
         email: input.email,
         password: input.password,
         role: 'Duenio',
@@ -56,34 +58,40 @@ export default function RegisterOwner() {
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Nombres</label>
                         <input onChange={handleChange} type='text' name='name' placeholder='Escribe tu nombre...'
-                            className='border-2 py-2 px-4 placeholder:text'
+                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Numero de contacto</label>
                         <input onChange={handleChange} type='text' name='contactPhone' placeholder='Escribe tu numero de contacto...'
-                            className='border-2 py-2 px-4 placeholder:text'
+                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Tu direccion</label>
                         <input onChange={handleChange} type='text' name='adressOwner' placeholder='Escribe tu numero de contacto...'
-                            className='border-2 py-2 px-4 placeholder:text'
+                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                        />
+                    </div>
+                    <div className='flex flex-col '>
+                        <label className='font-semibold'>Sube tu foto</label>
+                        <input onChange={handleChange} type='text' name='photo' placeholder='Escribe tu numero de contacto...'
+                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Email</label>
                         <input onChange={handleChange} type='text' name='email' placeholder='Escribe tu email...'
-                            className='border-2 py-2 px-4 placeholder:text'
+                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Contrasena</label>
                         <input onChange={handleChange} type='text' name='password' placeholder='Escribe tu contrasena...'
-                            className='border-2 py-2 px-4 placeholder:text'
+                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
-                    <button className='bg-black text-white py-2 px-4 mt-2' onClick={handleSubmit}>Registarse</button>
+                    <button className='bg-primaryColor text-white py-2 px-4 mt-2 rounded-xl' onClick={handleSubmit}>Registarse</button>
                     <p className='text-center'>Ya tienes una cuenta? <Link to={'/login'}><span className='text-black font-bold'>Login</span></Link></p>
                 </form>
             </div>

@@ -15,6 +15,7 @@ export default {
     },
     backgroundImage: {
       'hero-pattern': "url('/src/assets/HeroBg.png')",
+      'walker-bg': "url('/src/assets/walkerBg.png')",
     },
     extend: {},
   },

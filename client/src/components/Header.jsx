@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserProfile } from '../redux/usersSlice'
 import Cookies from 'js-cookie'
+import { setPets } from '../redux/petsSlice'
 
 export default function Header() {
 
@@ -27,12 +28,13 @@ export default function Header() {
     const handleSubmit = () => {
         logout()
         dispatch(getUserProfile(''))
+        dispatch(setPets(''))
         console.log("CERRO SESION");
 
     }
 
     return (
-        <header className='w-9/12 h-16 bg-white shadow-sm m-auto px-4  flex justify-between items-center rounded-[20px]'>
+        <header className='w-9/12 h-16 bg-white shadow-sm m-auto px-4 mt-6 flex justify-between items-center rounded-[20px] absolute left-0 right-0 '>
             <div className='flex gap-2'>
                 <img className='w-[40px] h-[40px]' src={logo} alt='logoDog' />
                 <h1 className='text-4xl font-bold'>HappyPaws</h1>
@@ -49,11 +51,11 @@ export default function Header() {
             {
                 sizeProfile > 0 ? <button className='relative flex justify-center cursor-pointer' onClick={() => setOpen(!open)}><img className='w-12 h-12 rounded-full' src={profile.photo} alt={profile.name} />
                     {
-                        open ? <div className='flex flex-col gap-4 w-36 absolute top-14 bg-white p-4 rounded-lg'>
+                        open ? <div className='flex flex-col gap-4 w-36 absolute top-14 bg-white p-4 rounded-lg z-10'>
                             {
                                 sizeProfile > 0 ? <button className='' onClick={handleSubmit}>Cerrar sesion</button> : null
                             }
-                            <p>Perfil</p>
+                            <Link to={'/perfil'}><p>Perfil</p></Link>
                         </div> : null
                     }
                 </button> : <Link to={'/login'}><button className='text-lg font-semobold bg-black rounded-xl py-2 px-4 text-white decoration-none'>Iniciar sesion</button></Link>

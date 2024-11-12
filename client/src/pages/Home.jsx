@@ -30,7 +30,8 @@ export default function Home() {
 
 
     return (
-        <div className='absolute z-[-1] top-0 left-0 right-0'>
+        <div className='relative'>
+            <Header />
             <Hero />
             <BestWalkers />
             <Bento />
