@@ -5,20 +5,15 @@ import RegisterWalker from "./components/auth/RegisterWalker"
 import RegisterOwner from "./components/auth/RegisterOwner"
 import Login from "./components/auth/Login"
 import Home from "./pages/Home"
-import Header from "./components/Header"
-import DetailWaker from "./components/DetailWaker"
 import Walker from "./pages/Walker"
 import Profile from "./pages/Profile"
-
+import Walkers from "./pages/walkers"
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-        {/* <div className="py-6 relative">
-          <Header />
-        </div> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
@@ -26,6 +21,7 @@ function App() {
           <Route path="/register/owner" element={<RegisterOwner />} />
           <Route path="/login" element={<Login />} />
           <Route path="/paseador/:id" element={<Walker />} />
+          <Route path="/paseadores" element={<Walkers />} />
           <Route path="/perfil" element={<Profile />} />
         </Routes>
       </BrowserRouter>

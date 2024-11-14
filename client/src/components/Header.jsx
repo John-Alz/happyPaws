@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserProfile } from '../redux/usersSlice'
 import Cookies from 'js-cookie'
 import { setPets } from '../redux/petsSlice'
+import { api } from '../services/walkers'
 
 export default function Header() {
 
@@ -21,7 +22,7 @@ export default function Header() {
 
 
     const logout = async () => {
-        axios.post('http://localhost:3000/api/logout', { withCredentials: true })
+        api.post('logout', { withCredentials: true })
         Cookies.remove('token')
     }
 
@@ -35,10 +36,13 @@ export default function Header() {
 
     return (
         <header className='w-9/12 h-16 bg-white shadow-sm m-auto px-4 mt-6 flex justify-between items-center rounded-[20px] absolute left-0 right-0 '>
-            <div className='flex gap-2'>
-                <img className='w-[40px] h-[40px]' src={logo} alt='logoDog' />
-                <h1 className='text-4xl font-bold'>HappyPaws</h1>
-            </div>
+            <Link to={'/'}>
+                <div className='flex gap-2'>
+                    <img className='w-[40px] h-[40px]' src={logo} alt='logoDog' />
+                    <h1 className='text-4xl font-bold'>HappyPaws</h1>
+                </div>
+            </Link>
+
             <nav>
                 <ul className='flex gap-10 items-center'>
                     <NavLink className={({ isActive }) => (isActive ? "border-b-2 border-primaryColor text-primaryColor font-semibold" : null)} to={'/'}><li className='text-lg font-semobold px-2'>Inicio</li></NavLink>

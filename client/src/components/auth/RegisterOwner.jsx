@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { api } from '../../services/walkers';
 
 export default function RegisterOwner() {
 
@@ -28,7 +29,7 @@ export default function RegisterOwner() {
     }
 
     const newUserWalker = async () => {
-        await axios.post('http://localhost:3000/api/register', user)
+        await api.post('register', user)
     }
 
 

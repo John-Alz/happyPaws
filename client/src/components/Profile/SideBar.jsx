@@ -4,9 +4,7 @@ import { FaUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 
 
-
 export default function SideBar() {
-
 
 
     return (

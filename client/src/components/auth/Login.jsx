@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { setLogin } from '../../redux/usersSlice';
+import { api } from '../../services/walkers';
 
 export default function Login() {
 
@@ -14,7 +15,7 @@ export default function Login() {
 
 
     const userLogin = async () => {
-        let response = await axios.post('http://localhost:3000/api/login', user, { withCredentials: true })
+        let response = await api.post('login', user, { withCredentials: true })
         if (response.status === 200) {
             navigate('/')
         }

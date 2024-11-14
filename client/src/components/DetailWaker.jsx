@@ -4,36 +4,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { setSingleWalker } from '../redux/usersSlice';
 import { IoLocationSharp } from "react-icons/io5";
-import Footer from './Footer';
 import Booking from './booking';
+import { api } from '../services/walkers';
+import { useFetch } from '../hooks/useFetch';
 
 export default function DetailWaker() {
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     let params = useParams();
-    console.log(params.id);
 
-    const data = useSelector(state => state.users.singleWalker)
+    // const data = useSelector(state => state.users.singleWalker)
 
-    const getWalker = async () => {
-        try {
-            let response = await axios.get(`http://localhost:3000/api/user/${params.id}`)
-            dispatch(setSingleWalker(response.data))
+    // const fetchWalker = async () => {
+    //     try {
+    //         let data = await api.get(`/user/${params.id}`)
+    //         dispatch(setSingleWalker(data))
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
-        } catch (error) {
-            console.log(error);
-
-        }
-    }
-
-    useEffect(() => {
-        getWalker()
-    }, [])
-
-    console.log(data);
-
-
+    const { data } = useFetch(`/user/${params.id}`);
 
     return (
         <section>
@@ -42,19 +34,19 @@ export default function DetailWaker() {
             </div> */}
             <div className='w-10/12 m-auto bg-walker-bg bg-cover bg-no-repeat rounded-xl p-4'>
                 <img src={data.photo} alt={data.name} className='w-40 h-40 rounded-full' />
-                <div className='flex justify-between items-center py-6 text-black font-semibold gap-2'>
+                <div className='flex justify-between items-center py-6 text-white font-semibold gap-2'>
 
                     {/* <p className=' text-xl  '>{data.name}</p> */}
                     <div className='flex flex-col'>
                         <h2 className=' text-5xl '>{data.name}</h2>
                         <div className='flex'>
-                            <IoLocationSharp size={25} className='flex justify-center items-center text-primaryColor' />
+                            <IoLocationSharp size={25} className='flex justify-center items-center text-white' />
                             <p className=' text-xl '>{data.paseadorInfo ? data.paseadorInfo.companyAddress : <p>NO DISPONIBLE</p>}</p>
                         </div>
                     </div>
                     <div className=' gap-45'>
                         <div className='w-32'></div>
-                        <button className='bg-primaryColor  py-2 px-4 text-lg text-black rounded-xl shadow-lg'>anadir a favoritos</button>
+                        <button className='bg-white  py-2 px-4 text-lg text-black rounded-xl shadow-lg'>anadir a favoritos</button>
                     </div>
                 </div>
 

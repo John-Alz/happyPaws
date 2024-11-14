@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setPets } from '../redux/petsSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { api } from '../services/walkers';
 
 export default function Booking({ idWalker, nameWalker }) {
 
@@ -21,9 +22,8 @@ export default function Booking({ idWalker, nameWalker }) {
 
     const createWalk = async () => {
         try {
-            let response = await axios.post('http://localhost:3000/api/walks', booking)
+            let response = await api.post('walks', booking)
             console.log(response);
-
             if (response.status === 200) {
                 toast.success('Paseo creado correctamente')
             } else {
@@ -31,10 +31,8 @@ export default function Booking({ idWalker, nameWalker }) {
             }
         } catch (error) {
             console.log(error);
-            toast.error("Paila!")
-
+            toast.error("Falta algun dato en el formulario")
         }
-
     }
 
     const owner = useSelector(state => state.users.profile)
@@ -42,8 +40,8 @@ export default function Booking({ idWalker, nameWalker }) {
 
     const dispatch = useDispatch();
     const getPetsOwner = async () => {
-        let response = await axios.get(`http://localhost:3000/api/pets/${owner._id}`)
-        dispatch(setPets(response.data))
+        let response = await api.get(`pets/${owner._id}`)
+        dispatch(setPets(response))
         console.log(response.data);
 
     }

@@ -42,3 +42,28 @@ export const getUserRol = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+
+// export const postUser = async (req, res) => {
+//     let { } = req.body;
+//     try {
+//         let newUser = await User
+//     } catch (error) {
+//         res.status(500).json({ message: error.message })
+//     }
+// }
+
+
+export const putUser = async (req, res) => {
+    let { id } = req.params;
+    let body = req.body;
+    try {
+        let user = await User.findByIdAndUpdate(id, body);
+
+        if (!user) return res.status(404).json({ message: `No hay usuarios con id ${id}` })
+
+        res.json(user)
+
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
