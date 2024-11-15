@@ -1,9 +1,10 @@
 import React from 'react'
+import RegisterOwner from '../auth/RegisterOwner'
 
 export default function FormInfoOwner() {
     return (
         <div>
-            <h2>Formulario de dueno</h2>
+            <RegisterOwner />
         </div>
     )
 }

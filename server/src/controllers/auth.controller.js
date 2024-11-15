@@ -5,9 +5,8 @@ import { TOKEN_SECRET } from "../config.js";
 
 
 export const register = async (req, res) => {
-    let { name, photo, email, password, role, paseadorInfo, duenioInfo, adminInfo } = req.body;
+    let { name, lastName, photo, email, password, role, paseadorInfo, duenioInfo, adminInfo } = req.body;
 
-    console.log(name, email, password, role);
 
     try {
 
@@ -32,6 +31,7 @@ export const register = async (req, res) => {
 
         const newUser = new User({
             name,
+            lastName,
             photo,
             email,
             password: passwordHash,
@@ -52,6 +52,7 @@ export const register = async (req, res) => {
         res.json({
             id: userSaved._id,
             name: userSaved.name,
+            lastName: userSaved.lastName,
             photo: userSaved.photo,
             email: userSaved.email,
             role: userSaved.role,
@@ -98,6 +99,7 @@ export const login = async (req, res) => {
         res.json({
             id: userFound._id,
             name: userFound.name,
+            lastName: userFound.lastName,
             photo: userFound.photo,
             email: userFound.email,
             role: userFound.role,

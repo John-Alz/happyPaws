@@ -38,7 +38,7 @@ export default function DetailWaker() {
 
                     {/* <p className=' text-xl  '>{data.name}</p> */}
                     <div className='flex flex-col'>
-                        <h2 className=' text-5xl '>{data.name}</h2>
+                        <h2 className=' text-5xl '>{data.name} {data.lastName}</h2>
                         <div className='flex'>
                             <IoLocationSharp size={25} className='flex justify-center items-center text-white' />
                             <p className=' text-xl '>{data.paseadorInfo ? data.paseadorInfo.companyAddress : <p>NO DISPONIBLE</p>}</p>
@@ -56,7 +56,7 @@ export default function DetailWaker() {
                     <div className='w-72 flex justify-between'>
                         <div className='w-24 flex flex-col'>
                             <p className='opacity-45'>Experiencia</p>
-                            <p className='text-center text-lg font-bold'>1.5 anios</p>
+                            <p className='text-center text-lg font-bold'>{data.paseadorInfo ? data.paseadorInfo.experience : <p>NO DISPONILE</p>} Años</p>
                         </div>
                         <div className='w-32 flex flex-col'>
                             <p className='opacity-45'>Costo por hora</p>
@@ -65,12 +65,7 @@ export default function DetailWaker() {
                     </div>
                     <div>
                         <h2 className='text-3xl font-semibold mb-4'>Quien soy?</h2>
-                        <p>
-                            ¡Regálale a tu perro el paseo que merece! <br /> <br />
-                            Soy un paseador confiable y apasionado, que hará que cada salida sea segura, divertida y llena de ejercicio. Cada paseo está diseñado para adaptarse a las necesidades y energía de tu perro, brindándole momentos de alegría y exploración mientras tú tienes la tranquilidad de saber que está en buenas manos. <br /><br />
-
-                            ¡Agenda hoy y dale a tu amigo de cuatro patas la aventura que tanto disfruta! 🐾
-                        </p>
+                        <p className='leading-loose'>{data.paseadorInfo ? data.paseadorInfo.description : <p>NO DISPONILE</p>}</p>
                     </div>
 
                 </div>

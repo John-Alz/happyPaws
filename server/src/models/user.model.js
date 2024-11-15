@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
+    lastName: { type: String, required: true },
     photo: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -10,6 +11,8 @@ const userSchema = new mongoose.Schema({
 
     // Subdocumento para los Paseadores
     paseadorInfo: {
+        description: String,
+        experience: Number,
         idType: String,
         idNumber: String,
         contactPhone: String,

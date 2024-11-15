@@ -43,7 +43,6 @@ export default function Booking({ idWalker, nameWalker }) {
         let response = await api.get(`pets/${owner._id}`)
         dispatch(setPets(response))
         console.log(response.data);
-
     }
 
     useEffect(() => {

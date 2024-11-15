@@ -9,6 +9,8 @@ import FormInfoWalker from "../components/Profile/FormInfoWalker";
 export default function Profile() {
 
     const profile = useSelector(state => state.users.profile);
+    console.log(profile);
+
 
     const rolFound = () => {
         if (profile.role === "Administrador") return <FormInfoAdmin />;

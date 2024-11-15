@@ -19,7 +19,7 @@ export default function Register() {
 
                 <Link to={'/register/owner'}>
                     <div className='w-[400px] flex justify-between border-b-2 border-primaryColor py-6 cursor-pointer'>
-                        <h2 className='text-4xl font-semibold'>Soy dueno</h2>
+                        <h2 className='text-4xl font-semibold'>Soy dueño</h2>
                         <IoIosArrowRoundForward size={50} />
                     </div>
                 </Link>

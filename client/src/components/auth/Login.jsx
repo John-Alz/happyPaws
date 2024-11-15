@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { setLogin } from '../../redux/usersSlice';
 import { api } from '../../services/walkers';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
 
@@ -18,6 +20,9 @@ export default function Login() {
         let response = await api.post('login', user, { withCredentials: true })
         if (response.status === 200) {
             navigate('/')
+            toast.success(`Bienvenido ${profile.name}`);
+        } else {
+            toast.error('error en tus credenciales');
         }
     }
 
@@ -37,6 +42,7 @@ export default function Login() {
 
     return (
         <section>
+            <ToastContainer />
             <div className='w-11/12 h-screen flex flex-col m-auto  items-center py-12'>
                 <form className='w-3/11 m-auto flex flex-col gap-2'>
                     <h2 className='text-4xl font-bold text-center'>Ingresa a tu cuenta</h2>
@@ -53,7 +59,7 @@ export default function Login() {
                             className='border-2 py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
-                    <button className='bg-primaryColor text-white py-2 px-4 mt-2 rounded-xl' onClick={handleSubmit}>Registarse</button>
+                    <button className='bg-primaryColor text-white py-2 px-4 mt-2 rounded-xl' onClick={handleSubmit}>Iniciar sesion</button>
                     <p className='text-center'>No tienes una cuenta? <Link to={'/register'}><span className='text-black font-bold'>Registrate</span></Link></p>
                 </form>
             </div>
