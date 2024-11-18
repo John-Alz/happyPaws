@@ -37,7 +37,7 @@ export default function FormInfoAdmin() {
 
     const updateUser = async () => {
         try {
-            let response = await api.put(`http://localhost:3000/api/user/${profile._id}`, admin)
+            let response = await api.put(`user/${profile._id}`, admin)
             console.log(response.status);
 
             if (!response.status === 200) return toast.error('No se pudo actulizar tu infirmacion');
@@ -80,7 +80,7 @@ export default function FormInfoAdmin() {
                         <div className='w-3/6 flex flex-col '>
                             <label className='font-semibold text-lg'>Nombre</label>
                             <input value={formData.name} onChange={handleChange} type='text' name='name' placeholder='Escribe tu nombre...'
-                                className='border-2 py-2 px-4 text-lg placeholder:text rounded-xl'
+                                className='border-2 py-2 px-4  text-lg placeholder:text rounded-xl'
                             />
                         </div>
                         <div className='w-3/6 flex flex-col '>

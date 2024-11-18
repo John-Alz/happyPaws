@@ -10,6 +10,9 @@ import Profile from "./pages/Profile"
 import Walkers from "./pages/walkers"
 import FormInfoWalker from "./components/Dashboard/FormInfoWalker"
 import FormInfoOwner from "./components/Dashboard/FormInfoOwner"
+import AdminLayout from "./components/layouts/AdminLayout"
+import FormInfoAdmin from "./components/Dashboard/FormInfoAdmin"
+import Users from "./pages/Users"
 
 function App() {
 
@@ -25,8 +28,19 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/paseador/:id" element={<Walker />} />
           <Route path="/paseadores" element={<Walkers />} />
-          <Route path="/perfil" element={<Profile />} />
-          <Route path="/editUser/:id" element={<FormInfoOwner />} />
+          {/* <Route path="/perfil" element={<Profile />} />
+          <Route path="/editUser/:id" element={<FormInfoOwner />} /> */}
+
+          {/* Admin */}
+          <Route path="/perfil" element={<AdminLayout />}>
+            <Route index element={<FormInfoAdmin />} />
+            <Route path="usuarios" element={<Users />} />
+            <Route path="usuario/owner/:id" element={<FormInfoOwner />} />
+            <Route path="usuario/walker/:id" element={<FormInfoWalker />} />
+            <Route path="usuarios/nuevo" element={<FormInfoOwner />} />
+            <Route path="usuarios/nuevo/pas" element={<FormInfoWalker />} />
+          </Route>
+
         </Routes>
       </BrowserRouter>
     </>

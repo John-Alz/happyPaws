@@ -56,9 +56,9 @@ export default function Header() {
                     {
                         open ? <div className='flex flex-col gap-4 w-36 absolute top-14 bg-white p-4 rounded-lg z-10'>
                             {
-                                sizeProfile > 0 ? <button className='' onClick={handleSubmit}>Cerrar sesion</button> : null
+                                sizeProfile > 0 ? <button className='hover:text-primaryColor' onClick={handleSubmit}>Cerrar sesion</button> : null
                             }
-                            <Link to={'/perfil'}><p>Perfil</p></Link>
+                            <Link to={'/perfil'}><p className='hover:text-primaryColor'>Perfil</p></Link>
                         </div> : null
                     }
                 </button> : <Link to={'/login'}><button className='text-lg font-semobold bg-black rounded-xl py-2 px-4 text-white decoration-none'>Iniciar sesion</button></Link>

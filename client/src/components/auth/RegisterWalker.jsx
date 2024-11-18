@@ -20,7 +20,6 @@ export default function RegisterWalker() {
         contactPhone: '',
         companyPhone: '',
         companyAddress: '',
-        walkerPhoto: '',
         hourlyRate: 0
     })
 

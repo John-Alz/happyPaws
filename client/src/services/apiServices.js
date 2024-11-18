@@ -37,6 +37,15 @@ export const api = {
             throw error;
         }
     },
+    patch: async (endPonit, data) => {
+        try {
+            let response = await apiClient.patch(endPonit, data);
+            return response;
+        } catch (error) {
+            console.log(`Error en la petiicon PUT: ${error}`);
+            throw error;
+        }
+    },
     delete: async (endPonit) => {
         try {
             let response = await apiClient.delete(endPonit);

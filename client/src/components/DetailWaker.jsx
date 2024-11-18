@@ -1,8 +1,5 @@
-import axios from 'axios'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+
 import { useParams } from 'react-router-dom'
-import { setSingleWalker } from '../redux/usersSlice';
 import { IoLocationSharp } from "react-icons/io5";
 import Booking from './booking';
 import { api } from '../services/apiServices';

@@ -23,7 +23,7 @@ export default function SideBar() {
                             <a>informacion</a>
                         </div>
                     </NavLink>
-                    <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/mascotas'}>
+                    <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/usuarios'}>
                         <div className=' text-black py-2 px-4 flex items-center gap-2'>
                             <FaUsers size={18} />
                             <a>Usuarios</a>

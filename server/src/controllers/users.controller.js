@@ -43,15 +43,6 @@ export const getUserRol = async (req, res) => {
     }
 }
 
-// export const postUser = async (req, res) => {
-//     let { } = req.body;
-//     try {
-//         let newUser = await User
-//     } catch (error) {
-//         res.status(500).json({ message: error.message })
-//     }
-// }
-
 
 export const putUser = async (req, res) => {
     let { id } = req.params;

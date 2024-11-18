@@ -24,6 +24,7 @@ const userSchema = new mongoose.Schema({
 
     // Subdocumento para los Dueños
     duenioInfo: {
+        idNumber: String,
         contactPhone: String,
         adressOwner: String,
     },

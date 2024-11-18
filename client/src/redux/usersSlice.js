@@ -9,7 +9,7 @@ const initialState = {
         password: ''
     },
     walkers: [],
-    singleWalker: []
+    singleUser: []
 }
 
 export const usersSlice = createSlice({
@@ -32,11 +32,11 @@ export const usersSlice = createSlice({
         setWalkers: (state, action) => {
             state.walkers = action.payload
         },
-        setSingleWalker: (state, action) => {
-            state.singleWalker = action.payload
+        setSingleUser: (state, action) => {
+            state.singleUser = action.payload
         }
     }
 })
 
-export const { setUsers, getUserProfile, setLogin, setWalkers, setSingleWalker } = usersSlice.actions;
+export const { setUsers, getUserProfile, setLogin, setWalkers, setSingleUser } = usersSlice.actions;
 export default usersSlice.reducer

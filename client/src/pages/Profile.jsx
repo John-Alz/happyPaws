@@ -14,11 +14,7 @@ export default function Profile() {
     console.log(profile);
 
 
-    const rolFound = () => {
-        if (profile.role === "Administrador") return <FormInfoAdmin />;
-        if (profile.role === "Duenio") return <FormInfoOwner />;
-        if (profile.role === "Paseador") return <FormInfoWalker />;
-    }
+
 
     return (
         <div>
@@ -29,9 +25,9 @@ export default function Profile() {
                 <div className="w-full">
                     <HeaderProfile />
                     <Users />
-                    {/* {
+                    {
                         rolFound()
-                    } */}
+                    }
                 </div>
 
             </div>
