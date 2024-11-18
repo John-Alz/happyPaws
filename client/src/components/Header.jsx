@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserProfile } from '../redux/usersSlice'
 import Cookies from 'js-cookie'
 import { setPets } from '../redux/petsSlice'
-import { api } from '../services/walkers'
+import { api } from '../services/apiServices.js'
 
 export default function Header() {
 
@@ -18,7 +18,6 @@ export default function Header() {
     console.log(profile);
 
     let sizeProfile = Object.keys(profile).length;
-
 
 
     const logout = async () => {

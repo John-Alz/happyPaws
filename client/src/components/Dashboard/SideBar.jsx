@@ -1,6 +1,6 @@
 import logo from '../../assets/logo.png'
 import { MdOutlinePets, MdFavorite, MdInfo, MdLogout } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaUsers, FaWalking } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 
 
@@ -25,14 +25,14 @@ export default function SideBar() {
                     </NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/mascotas'}>
                         <div className=' text-black py-2 px-4 flex items-center gap-2'>
-                            <MdOutlinePets size={18} />
-                            <a> Mis mascotas</a>
+                            <FaUsers size={18} />
+                            <a>Usuarios</a>
                         </div>
                     </NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/mascotas'}>
                         <div className=' text-black py-2 px-4 flex items-center gap-2'>
-                            <MdFavorite size={18} />
-                            <a>Mis favoritos</a>
+                            <FaWalking size={18} />
+                            <a>Paseos</a>
                         </div>
                     </NavLink>
 

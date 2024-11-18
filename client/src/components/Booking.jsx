@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setPets } from '../redux/petsSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { api } from '../services/walkers';
+import { api } from '../services/apiServices';
 
 export default function Booking({ idWalker, nameWalker }) {
 

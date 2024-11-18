@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { api } from "../../services/walkers";
+import { api } from "../../services/apiServices";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -74,6 +74,7 @@ export default function FormInfoAdmin() {
         <section>
             <ToastContainer />
             <div className='w-11/12 m-auto pt-12'>
+                <h2 className="text-4xl font-bold mb-11">Modifica tu informacion personal</h2>
                 <form className='w-3/11 m-auto flex flex-col gap-8'>
                     <div className=" flex gap-4">
                         <div className='w-3/6 flex flex-col '>

@@ -11,7 +11,8 @@ export default {
       'white': '#FFFFFF',
       'black': '#000000',
       'primaryColor': '#FD7E14',
-      'violet': '#7251b5'
+      'violet': '#7251b5',
+      'grayBg': '#F4F5F6'
     },
     backgroundImage: {
       'hero-pattern': "url('/src/assets/HeroBg.png')",

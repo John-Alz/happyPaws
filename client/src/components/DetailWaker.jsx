@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { setSingleWalker } from '../redux/usersSlice';
 import { IoLocationSharp } from "react-icons/io5";
 import Booking from './booking';
-import { api } from '../services/walkers';
+import { api } from '../services/apiServices';
 import { useFetch } from '../hooks/useFetch';
 
 export default function DetailWaker() {
@@ -38,7 +38,7 @@ export default function DetailWaker() {
 
                     {/* <p className=' text-xl  '>{data.name}</p> */}
                     <div className='flex flex-col'>
-                        <h2 className=' text-5xl '>{data.name} {data.lastName}</h2>
+                        <h2 className=' text-5xl mb-4'>{data.name} {data.lastName}</h2>
                         <div className='flex'>
                             <IoLocationSharp size={25} className='flex justify-center items-center text-white' />
                             <p className=' text-xl '>{data.paseadorInfo ? data.paseadorInfo.companyAddress : <p>NO DISPONIBLE</p>}</p>

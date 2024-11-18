@@ -8,8 +8,11 @@ import Home from "./pages/Home"
 import Walker from "./pages/Walker"
 import Profile from "./pages/Profile"
 import Walkers from "./pages/walkers"
+import FormInfoWalker from "./components/Dashboard/FormInfoWalker"
+import FormInfoOwner from "./components/Dashboard/FormInfoOwner"
 
 function App() {
+
 
   return (
     <>
@@ -23,6 +26,7 @@ function App() {
           <Route path="/paseador/:id" element={<Walker />} />
           <Route path="/paseadores" element={<Walkers />} />
           <Route path="/perfil" element={<Profile />} />
+          <Route path="/editUser/:id" element={<FormInfoOwner />} />
         </Routes>
       </BrowserRouter>
     </>

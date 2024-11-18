@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api } from "../services/walkers";
+import { api } from "../services/apiServices";
 
 
 export const useFetch = (url) => {
