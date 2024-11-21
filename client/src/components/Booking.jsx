@@ -1,28 +1,40 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { setPets } from '../redux/petsSlice';
+import { setPets, setPetsByOwner } from '../redux/petsSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { api } from '../services/apiServices';
+import { setWalkers } from '../redux/usersSlice';
+import { useParams } from 'react-router-dom';
+import { setWalk } from '../redux/walksSlice';
 
 export default function Booking({ idWalker, nameWalker }) {
+
+    const profile = useSelector(state => state.users.profile)
+
+    const params = useParams();
+
 
     let [booking, setBooking] = useState({
         dateWalk: "",
         startTimeWalk: "",
-        timeWalk: 0,
+        timeWalk: '',
         newsWalk: "",
         pet: "",
-        walker: idWalker,
+        walker: idWalker ? idWalker : "",
     })
 
     console.log(idWalker);
-    console.log(booking);
+    console.log(booking.dateWalk);
 
     const createWalk = async () => {
+
+        let endPonit = params.id ? `walk/${params.id}` : 'walks';
+        let method = params.id ? api.put : api.post;
+
         try {
-            let response = await api.post('walks', booking)
+            let response = await method(endPonit, booking)
             console.log(response);
             if (response.status === 200) {
                 toast.success('Paseo creado correctamente')
@@ -35,18 +47,75 @@ export default function Booking({ idWalker, nameWalker }) {
         }
     }
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toISOString().split('T')[0];
+    };
+
+    // admin
+
+    const walkers = useSelector(state => state.users.walkers)
+    const pets = useSelector(state => state.pets.pets)
+    const walk = useSelector(state => state.walks.walk)
+    console.log(pets);
+
+
+    const getWalkers = async () => {
+        try {
+            let response = await api.get('users/Paseador');
+            dispatch(setWalkers(response))
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const getPets = async () => {
+        try {
+            let response = await api.get('pets');
+            dispatch(setPets(response))
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const getWalk = async () => {
+        try {
+            let response = await api.get(`walk/${params.id}`)
+            console.log(response);
+            dispatch(setWalk(response))
+            setBooking({
+                dateWalk: formatDate(response?.dateWalk || ""),
+                startTimeWalk: response?.startTimeWalk || "",
+                timeWalk: response?.timeWalk || 0,
+                newsWalk: response?.newsWalk || "",
+                pet: response?.pet?._id || "",
+                walker: response?.walker?._id || "",
+            })
+
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
+
+    //
+
     const owner = useSelector(state => state.users.profile)
-    const petsByOwner = useSelector(state => state.pets.pets)
+    const petsByOwner = useSelector(state => state.pets.petsByOwner)
 
     const dispatch = useDispatch();
     const getPetsOwner = async () => {
         let response = await api.get(`pets/${owner._id}`)
-        dispatch(setPets(response))
+        dispatch(setPetsByOwner(response))
         console.log(response.data);
     }
 
     useEffect(() => {
         getPetsOwner()
+        getWalkers()
+        getPets()
+        getWalk()
     }, [])
 
     console.log(petsByOwner);
@@ -79,47 +148,82 @@ export default function Booking({ idWalker, nameWalker }) {
         <div>
             <ToastContainer />
             <div className='flex flex-col  items-center'>
-                <h2 className='text-3xl font-bold text-left mb-4'>Reserva tu paseo</h2>
-                <form className='flex flex-col gap-2 w-[450px]'>
+                <form className='w-full flex flex-col gap-2  bg-gray p-8 rounded-xl'>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Fecha</label>
-                        <input onChange={handleChange} type='date' name='dateWalk'
-                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                        <input onChange={handleChange} type='date' value={booking.dateWalk} name='dateWalk'
+                            className=' py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Hora de incio del paseo</label>
-                        <input onChange={handleChange} type='time' name='startTimeWalk'
-                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                        <input onChange={handleChange} type='time' value={booking.startTimeWalk} name='startTimeWalk'
+                            className=' py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Duracion del paseo</label>
-                        <input onChange={handleChange} type='number' name='timeWalk' placeholder='Escribe la duracion del paseo...'
-                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                        <input onChange={handleChange} type='number' value={booking.timeWalk} name='timeWalk' placeholder='Escribe la duracion del paseo...'
+                            className=' py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Recomendaciones del paseo</label>
-                        <input onChange={handleChange} type='text' name='newsWalk' placeholder='Escribe cosas a tener en cuenta...'
-                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                        <input onChange={handleChange} type='text' value={booking.newsWalk} name='newsWalk' placeholder='Escribe cosas a tener en cuenta...'
+                            className=' py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
-                    <div className='flex flex-col '>
-                        <label className='font-semibold'>Selecciona tu mascota</label>
-                        <select onChange={handleChange} name='pet' className='border-2 py-2 px-4 placeholder:text rounded-xl'>
-                            <option selected disabled>Selecciona un tipo de documento</option>
-                            {
-                                petsByOwner ? petsByOwner.map((pet, i) => {
-                                    return (
-                                        <>
-                                            <option value={pet._id}>{pet.petName}</option>
-                                        </>
-                                    )
-                                }) : null
-                            }
-                        </select>
-                    </div>
+                    {
+                        profile.role === "Duenio" ? <div className='flex flex-col '>
+                            <label className='font-semibold'>Selecciona tu mascota</label>
+                            <select onChange={handleChange} name='pet' className=' py-2 px-4 placeholder:text rounded-xl'>
+                                <option selected disabled>Selecciona una mascota</option>
+                                {
+                                    petsByOwner ? petsByOwner.map((pet, i) => {
+                                        return (
+                                            <>
+                                                <option value={pet._id}>{pet.petName}</option>
+                                            </>
+                                        )
+                                    }) : null
+                                }
+                            </select>
+                        </div> : null
+                    }
+                    {
+                        profile.role === "Administrador" ? <div className='flex flex-col '>
+                            <label className='font-semibold'>Selecciona una mascota</label>
+                            <select onChange={handleChange} name='pet' value={params.id ? booking.pet : null} className=' py-2 px-4 placeholder:text rounded-xl'>
+                                <option selected disabled>Selecciona una mascota</option>
+                                {
+                                    pets ? pets.map((pet, i) => {
+                                        return (
+                                            <>
+                                                <option value={pet._id}>{pet.petName}</option>
+                                            </>
+                                        )
+                                    }) : null
+                                }
+                            </select>
+                        </div> : null
+                    }
+                    {
+                        profile.role === "Administrador" ? <div className='flex flex-col '>
+                            <label className='font-semibold'>Selecciona el paseador</label>
+                            <select onChange={handleChange} name='walker' value={params.id ? booking.walker : null} className=' py-2 px-4 placeholder:text rounded-xl'>
+                                <option selected disabled>Selecciona una mascota</option>
+                                {
+                                    walkers ? walkers.map((walker, i) => {
+                                        return (
+                                            <>
+                                                <option value={walker._id}>{walker.name}</option>
+                                            </>
+                                        )
+                                    }) : null
+                                }
+                            </select>
+                        </div> : null
+                    }
                     <button onClick={handleSubmit} className='bg-primaryColor rounded-xl text-white py-2 px-4 mt-2' >Reservar</button>
                 </form>
             </div>

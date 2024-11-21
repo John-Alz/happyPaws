@@ -7,11 +7,11 @@ import { isOwner, verifyToken } from "../middlewares/authJwt.js";
 const petRouter = Router();
 
 petRouter.get('/pets', getPets)
-petRouter.post('/pets', [verifyToken, isOwner], postPet)
+petRouter.post('/pets', postPet)
 petRouter.get('/pet/:id', getPet)
 petRouter.get('/pets/:owner', getPetsOwner)
-petRouter.put('/pet/:id', [verifyToken, isOwner], putPet)
-petRouter.delete('/pet/:id', [verifyToken, isOwner], deletePet)
+petRouter.put('/pet/:id', putPet)
+petRouter.delete('/pet/:id', deletePet)
 
 
 export default petRouter;

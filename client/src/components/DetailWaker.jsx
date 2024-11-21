@@ -66,7 +66,8 @@ export default function DetailWaker() {
                     </div>
 
                 </div>
-                <div className='w-3/6 flex justify-end'>
+                <div className='w-3/6  '>
+                    <h2 className='text-3xl font-bold text-center mb-4'>Reserva tu paseo</h2>
                     <Booking idWalker={params.id} />
                 </div>
             </div>

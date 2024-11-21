@@ -21,16 +21,26 @@ export default function UserList() {
     const data = useSelector(state => state.users.users);
 
     const getUsers = async (role) => {
-        if (role === 'all') {
-            let response = await api.get('users')
-            dispatch(setUsers(response))
-        } else if (role === 'walkers') {
-            let response = await api.get('users/Paseador')
-            dispatch(setUsers(response))
-        } else if (role === 'owners') {
-            let response = await api.get('users/Duenio')
-            dispatch(setUsers(response))
+
+        let response;
+        switch (role) {
+            case 'all':
+                response = await api.get('users')
+                dispatch(setUsers(response))
+                break;
+            case 'walkers':
+                response = await api.get('users/Paseador')
+                dispatch(setUsers(response))
+                break;
+            case 'owners':
+                response = await api.get('users/Duenio')
+                dispatch(setUsers(response))
+                break;
+            default:
+                console.log('hubo un error');
+                break;
         }
+
     }
 
     const handleRol = (e) => {
@@ -53,7 +63,7 @@ export default function UserList() {
 
         try {
             let response = await api.delete(`user/${idDelete}`)
-            if (response === 200) {
+            if (response.status === 200) {
                 toast.success("Se elemino el usuario")
             } else {
                 toast.error("Hubo un error")
@@ -74,7 +84,7 @@ export default function UserList() {
             <ToastContainer />
             <div className="flex justify-between mb-8 mt-4 items-center">
                 <div className='w-2/6 flex flex-col justify-around py-1 gap-2 rounded-xl bg-grayBg shrink-0 sm:flex-row'>
-                    <button onClick={handleRol} value='all' className='py-2 px-4 rounded-xl text-white focus:bg-primaryColor '>Ver todos</button>
+                    <button onClick={handleRol} value='all' className='py-2 px-4 rounded-xl  focus:bg-primaryColor focus:text-white '>Ver todos</button>
                     <button onClick={handleRol} value='walkers' className=' py-2 px-4 rounded-xl focus:bg-primaryColor focus:text-white'>Paseadores</button>
                     <button onClick={handleRol} value='owners' className=' py-2 px-4 rounded-xl focus:bg-primaryColor focus:text-white'>Duenios</button>
                 </div>

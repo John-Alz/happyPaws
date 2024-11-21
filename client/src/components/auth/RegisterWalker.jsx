@@ -68,20 +68,21 @@ export default function RegisterWalker() {
     return (
         <section>
             <div className=' w-11/12 m-auto itmes-center py-12'>
-                <form className='w-7/12 m-auto flex flex-col gap-2'>
+
+                <form className='w-7/12 m-auto flex flex-col gap-2 bg-gray p-8 rounded-xl'>
                     <h2 className='text-4xl font-bold text-center text-primaryColor'>Crea tu cuenta de paseador</h2>
                     <p className='text-center pb-6'>Ingresa tus credenciales</p>
                     <div className='flex gap-4'>
-                        <div className='w-3/6'>
+                        <div className='w-3/6 flex flex-col gap-2'>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Nombre</label>
                                 <input onChange={handleChange} type='text' name='name' placeholder='Escribe tu nombre...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Tipo de identificacion</label>
-                                <select onChange={handleChange} name='idType' className='border-2 py-2 px-4 placeholder:text rounded-xl'>
+                                <select onChange={handleChange} name='idType' className=' py-2 px-4 placeholder:text rounded-xl'>
                                     <option selected disabled>Selecciona un tipo de documento</option>
                                     <option>CC</option>
                                     <option>TI</option>
@@ -90,70 +91,70 @@ export default function RegisterWalker() {
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Numero de contacto</label>
                                 <input onChange={handleChange} type='text' name='contactPhone' placeholder='Escribe tu numero de contacto...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Numero de contacto empresa</label>
                                 <input onChange={handleChange} type='text' name='companyPhone' placeholder='Escribe tu numero de contacto tu empresa...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Description</label>
                                 <textarea onChange={handleChange} type='text' name='description' placeholder='Escribe tu descripcion...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl h-[120px]' />
+                                    className=' py-2 px-4 placeholder:text rounded-xl h-[120px]' />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Email</label>
                                 <input onChange={handleChange} type='text' name='email' placeholder='Escribe tu email...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
 
                         </div>
 
-                        <div className='w-3/6'>
+                        <div className='w-3/6 flex flex-col gap-2'>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Apellido</label>
                                 <input onChange={handleChange} type='text' name='lastName' placeholder='Escribe tu numero de contacto...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Numero de identificacion</label>
                                 <input onChange={handleChange} type='text' name='idNumber' placeholder='Escribe tu numero de identificacion...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Sube tu foto</label>
                                 <input onChange={handleChange} type='text' name='photo' placeholder='Escribe tu numero de contacto...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Direccion de tu empresa</label>
                                 <input onChange={handleChange} type='text' name='companyAddress' placeholder='Escribe tu numero de contacto...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Tarifa por hora</label>
                                 <input onChange={handleChange} type='number' name='hourlyRate' placeholder='Escribe tu numero de contacto...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Experiencia</label>
                                 <input onChange={handleChange} type='number' name='experience' placeholder='Escribe tu experiencia...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Contrasena</label>
                                 <input onChange={handleChange} type='text' name='password' placeholder='Escribe tu contrasena...'
-                                    className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                    className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                         </div>

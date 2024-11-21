@@ -9,7 +9,7 @@ export default function SideBar() {
 
     return (
         <div>
-            <div className='border-r-2 border-grayDark h-screen w-52 flex flex-col justify-between py-4 pl-4'>
+            <div className='h-screen border-r-2 border-grayDark w-52 flex flex-col justify-between py-4 pl-4'>
                 <div className='flex flex-col gap-4'>
                     <Link to={'/'}>
                         <div className=' text-black py-2 px-4 flex items-center gap-2'>
@@ -17,7 +17,7 @@ export default function SideBar() {
                             <h1 className='text-xl font-bold'>HappyPaws</h1>
                         </div>
                     </Link>
-                    <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-45')} to={'/perfil'}>
+                    <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-45')} to={'/perfil/info'}>
                         <div className=' text-black py-2 px-4 flex items-center gap-2'>
                             <FaUser />
                             <a>informacion</a>
@@ -29,10 +29,16 @@ export default function SideBar() {
                             <a>Usuarios</a>
                         </div>
                     </NavLink>
-                    <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/mascotas'}>
+                    <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/paseos'}>
                         <div className=' text-black py-2 px-4 flex items-center gap-2'>
                             <FaWalking size={18} />
                             <a>Paseos</a>
+                        </div>
+                    </NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/mascotas'}>
+                        <div className=' text-black py-2 px-4 flex items-center gap-2'>
+                            <FaWalking size={18} />
+                            <a>Mascotas</a>
                         </div>
                     </NavLink>
 

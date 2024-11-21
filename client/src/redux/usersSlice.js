@@ -9,6 +9,7 @@ const initialState = {
         password: ''
     },
     walkers: [],
+    owners: [],
     singleUser: []
 }
 
@@ -34,9 +35,12 @@ export const usersSlice = createSlice({
         },
         setSingleUser: (state, action) => {
             state.singleUser = action.payload
-        }
+        },
+        setOwners: (state, action) => {
+            state.owners = action.payload
+        },
     }
 })
 
-export const { setUsers, getUserProfile, setLogin, setWalkers, setSingleUser } = usersSlice.actions;
+export const { setUsers, getUserProfile, setLogin, setWalkers, setSingleUser, setOwners } = usersSlice.actions;
 export default usersSlice.reducer

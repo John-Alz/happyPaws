@@ -57,26 +57,26 @@ export default function RegisterOwner() {
         <section>
             <div className=' w-11/12 h-screen flex flex-col m-auto  items-center py-12'>
 
-                <form className='w-7/12 m-auto flex flex-col gap-2'>
-                    <h2 className='text-4xl font-bold text-center'>Crea tu cuenta de dueño</h2>
+                <form className='w-7/12 m-auto flex flex-col gap-2 bg-gray p-8 rounded-xl'>
+                    <h2 className='text-4xl font-bold text-center text-primaryColor'>Crea tu cuenta de dueño</h2>
                     <p className='text-center pb-6'>Ingresa tus credenciales</p>
                     <div className='flex gap-4'>
                         <div className='flex flex-col w-4/12 gap-2'>
                             <label className='font-semibold'>Nombres</label>
                             <input onChange={handleChange} type='text' name='name' placeholder='Escribe tu nombre...'
-                                className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>
                         <div className='flex flex-col w-4/12 gap-2'>
                             <label className='font-semibold'>Apellido</label>
                             <input onChange={handleChange} type='text' name='lastName' placeholder='Escribe tu apellido...'
-                                className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>
                         <div className='flex flex-col w-4/12 gap-2'>
                             <label className='font-semibold'>Sube tu foto</label>
                             <input onChange={handleChange} type='text' name='photo' placeholder='Sube tu foto...'
-                                className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>
                     </div>
@@ -84,19 +84,19 @@ export default function RegisterOwner() {
                         <div className='w-4/12 flex  flex-col gap-2'>
                             <label className='font-semibold'>Numero de contacto</label>
                             <input onChange={handleChange} type='text' name='contactPhone' placeholder='Escribe tu numero de contacto...'
-                                className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>
                         <div className='w-4/12 flex flex-col gap-2'>
                             <label className='font-semibold'>Tu direccion</label>
                             <input onChange={handleChange} type='text' name='adressOwner' placeholder='Escribe tu direccion...'
-                                className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>
                         <div className='w-4/12 flex flex-col gap-2'>
                             <label className='font-semibold'>Tu identificacion</label>
                             <input onChange={handleChange} type='text' name='idNumber' placeholder='Escribe tu numero de identificacion...'
-                                className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>
                     </div>
@@ -104,13 +104,13 @@ export default function RegisterOwner() {
                         <div className='w-3/6 flex flex-col gap-2'>
                             <label className='font-semibold'>Email</label>
                             <input onChange={handleChange} type='text' name='email' placeholder='Escribe tu email...'
-                                className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>
                         <div className='flex w-3/6  flex-col gap-2'>
                             <label className='font-semibold'>Contrasena</label>
                             <input onChange={handleChange} type='text' name='password' placeholder='Escribe tu contrasena...'
-                                className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                                className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>
                     </div>

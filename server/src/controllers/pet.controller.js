@@ -39,7 +39,7 @@ export const postPet = async (req, res) => {
 export const getPet = async (req, res) => {
     let id = req.params.id
     try {
-        let pet = await Pet.find({ _id: id }).populate('owner')
+        let pet = await Pet.findById(id).populate('owner')
 
         res.json(pet)
 

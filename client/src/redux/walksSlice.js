@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    walks: []
+    walks: [],
+    walk: []
 }
 
 export const walksSlice = createSlice({
@@ -10,10 +11,13 @@ export const walksSlice = createSlice({
     initialState,
     reducers: {
         setWalks: (state, action) => {
-            state.profile = action.payload;
+            state.walks = action.payload;
+        },
+        setWalk: (state, action) => {
+            state.walk = action.payload;
         }
     }
 })
 
-export const { setWalks } = walksSlice.actions;
+export const { setWalks, setWalk } = walksSlice.actions;
 export default walksSlice.reducer

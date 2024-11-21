@@ -75,18 +75,18 @@ export default function FormInfoAdmin() {
             <ToastContainer />
             <div className='w-11/12 m-auto pt-12'>
                 <h2 className="text-4xl font-bold mb-11">Modifica tu informacion personal</h2>
-                <form className='w-3/11 m-auto flex flex-col gap-8'>
+                <form className='w-3/11 m-auto flex flex-col gap-8 bg-gray p-8 rounded-xl'>
                     <div className=" flex gap-4">
                         <div className='w-3/6 flex flex-col '>
                             <label className='font-semibold text-lg'>Nombre</label>
                             <input value={formData.name} onChange={handleChange} type='text' name='name' placeholder='Escribe tu nombre...'
-                                className='border-2 py-2 px-4  text-lg placeholder:text rounded-xl'
+                                className=' py-2 px-4  text-lg placeholder:text rounded-xl'
                             />
                         </div>
                         <div className='w-3/6 flex flex-col '>
                             <label className='font-semibold text-lg'>Email</label>
                             <input value={formData.email} onChange={handleChange} type='text' name='email' placeholder='Escribe tu contrasena...'
-                                className='border-2 py-2 px-4 text-lg  placeholder:text rounded-xl'
+                                className=' py-2 px-4 text-lg  placeholder:text rounded-xl'
                             />
                         </div>
                     </div>
@@ -102,13 +102,13 @@ export default function FormInfoAdmin() {
                         <div className='w-3/6 flex flex-col '>
                             <label className='font-semibold text-lg'>Numero de identificacion</label>
                             <input value={formData.idNumber} onChange={handleChange} type='text' name='idNumber' placeholder='Escribe tu numero de identificacion...'
-                                className='border-2 py-2 px-4 text-lg  placeholder:text rounded-xl'
+                                className='py-2 px-4 text-lg  placeholder:text rounded-xl'
                             />
                         </div>
                         <div className='w-3/6 flex flex-col '>
                             <label className='font-semibold text-lg'>Numero de telefono</label>
                             <input value={formData.contactPhone} onChange={handleChange} type='text' name='contactPhone' placeholder='Escribe tu contrasena...'
-                                className='border-2 py-2 px-4 text-lg  placeholder:text rounded-xl'
+                                className='py-2 px-4 text-lg  placeholder:text rounded-xl'
                             />
                         </div>
                     </div>
@@ -116,7 +116,7 @@ export default function FormInfoAdmin() {
                         <div className='w-full flex flex-col '>
                             <label className='font-semibold text-lg'>Foto</label>
                             <input value={formData.photo} onChange={handleChange} type='text' name='photo' placeholder='Escribe tu contrasena...'
-                                className='border-2 py-2 px-4 text-lg  placeholder:text rounded-xl'
+                                className=' py-2 px-4 text-lg  placeholder:text rounded-xl'
                             />
                         </div>
                     </div>

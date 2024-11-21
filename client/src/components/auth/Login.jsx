@@ -44,19 +44,19 @@ export default function Login() {
         <section>
             <ToastContainer />
             <div className='w-11/12 h-screen flex flex-col m-auto  items-center py-12'>
-                <form className='w-3/11 m-auto flex flex-col gap-2'>
-                    <h2 className='text-4xl font-bold text-center'>Ingresa a tu cuenta</h2>
+                <form className='w-3/11 m-auto flex flex-col gap-2 bg-gray p-8 rounded-xl'>
+                    <h2 className='text-4xl font-bold text-center text-primaryColor'>Ingresa a tu cuenta</h2>
                     <p className='text-center pb-6'>Bienvenido de vuelta, Ingresa tus credenciales</p>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Email</label>
                         <input onChange={handleChange} type='text' name='email' placeholder='Escribe tu email...'
-                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                            className=' py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Contrasena</label>
                         <input onChange={handleChange} type='text' name='password' placeholder='Escribe tu contrasena...'
-                            className='border-2 py-2 px-4 placeholder:text rounded-xl'
+                            className=' py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>
                     <button className='bg-primaryColor text-white py-2 px-4 mt-2 rounded-xl' onClick={handleSubmit}>Iniciar sesion</button>
