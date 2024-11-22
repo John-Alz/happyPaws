@@ -118,7 +118,12 @@ export default function FormInfoWalker() {
     return (
         <section>
             <div className=' w-11/12 m-auto itmes-center py-12 '>
-                <h2 className='text-4xl font-bold mb-11'>Crea un nuevo paseador</h2>
+                <div className='mb-4'>
+                    {
+                        params.id ? <h2 className='text-4xl font-bold'>Editas al paseador {input.name}</h2> : <h2 className='text-4xl font-bold'>Crea un nuevo paseador</h2>
+                    }
+                </div>
+
                 <form className='m-auto flex flex-col gap-2 bg-gray p-8 rounded-xl'>
                     <div className='flex gap-4'>
                         <div className='w-3/6'>

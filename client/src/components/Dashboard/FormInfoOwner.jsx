@@ -104,7 +104,9 @@ export default function FormInfoOwner() {
             <section>
                 <div className=' h-screen flex flex-col m-auto  items-center py-12'>
                     <div className='w-11/12 mb-8'>
-                        <h2 className='text-4xl font-bold'>Crea un nuevo dueño</h2>
+                        {
+                            params.id ? <h2 className='text-4xl font-bold'>Editas al dueño {input.name}</h2> : <h2 className='text-4xl font-bold'>Crea un nuevo dueño</h2>
+                        }
                     </div>
                     <form className='w-11/12  flex flex-col gap-2 bg-gray p-8 rounded-xl'>
                         <div className='flex gap-4'>

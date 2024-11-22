@@ -57,18 +57,18 @@ export default function WalksList() {
                     <Link to={'/perfil/paseos/nuevo'}><button className='bg-primaryColor py-2 px-4 rounded-xl text-white'>Nuevo paseo</button></Link>
                 </div>
             </div>
-            <table className='min-w-full  text-base font-light text-surface '>
+            <table className='min-w-full  text-base font-light text-surface bg-gray p-8 rounded-xl'>
                 <thead className=" border-b border-[#ced4da] ">
                     <tr>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Paseador</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Mascota</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Fecha</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">H. inicio</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Duracion</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Acciones</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold  opacity-50 uppercase">Paseador</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold  opacity-50 uppercase">Mascota</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold  opacity-50 uppercase">Fecha</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold  opacity-50 uppercase">H. inicio</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold  opacity-50 uppercase">Duracion</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold  opacity-50 uppercase">Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='font-medium'>
                     {
                         data?.map((walk, i) => {
                             return (

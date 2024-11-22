@@ -37,7 +37,7 @@ export default function SideBar() {
                     </NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/mascotas'}>
                         <div className=' text-black py-2 px-4 flex items-center gap-2'>
-                            <FaWalking size={18} />
+                            <MdOutlinePets size={18} />
                             <a>Mascotas</a>
                         </div>
                     </NavLink>

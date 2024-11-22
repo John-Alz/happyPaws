@@ -15,6 +15,7 @@ import { IoIosSearch, IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 export default function UserList() {
 
     let [flag, setFlag] = useState(true)
+    let [role, setRole] = useState('all')
 
     const dispatch = useDispatch();
 
@@ -44,9 +45,10 @@ export default function UserList() {
     }
 
     const handleRol = (e) => {
-        let role = e.target.value;
+        let rol = e.target.value;
+        setRole(rol)
         console.log(role);
-        getUsers(role);
+
     }
 
     console.log(data);
@@ -75,8 +77,8 @@ export default function UserList() {
     }
 
     useEffect(() => {
-        getUsers()
-    }, [deleteUser])
+        getUsers(role)
+    }, [deleteUser, role])
 
 
     return (
@@ -84,9 +86,9 @@ export default function UserList() {
             <ToastContainer />
             <div className="flex justify-between mb-8 mt-4 items-center">
                 <div className='w-2/6 flex flex-col justify-around py-1 gap-2 rounded-xl bg-grayBg shrink-0 sm:flex-row'>
-                    <button onClick={handleRol} value='all' className='py-2 px-4 rounded-xl  focus:bg-primaryColor focus:text-white '>Ver todos</button>
-                    <button onClick={handleRol} value='walkers' className=' py-2 px-4 rounded-xl focus:bg-primaryColor focus:text-white'>Paseadores</button>
-                    <button onClick={handleRol} value='owners' className=' py-2 px-4 rounded-xl focus:bg-primaryColor focus:text-white'>Duenios</button>
+                    <button onClick={handleRol} value='all' className={`py-2 px-4 rounded-xl focus:text-white ${role === 'all' ? 'bg-primaryColor text-white' : null} `}>Ver todos</button>
+                    <button onClick={handleRol} value='walkers' className={`py-2 px-4 rounded-xl focus:text-white ${role === 'walkers' ? 'bg-primaryColor text-white' : null} `}>Paseadores</button>
+                    <button onClick={handleRol} value='owners' className={`py-2 px-4 rounded-xl focus:text-white ${role === 'owners' ? 'bg-primaryColor text-white' : null} `}>Duenios</button>
                 </div>
                 <div className="flex gap-4 items-center">
                     <form className="relative">
@@ -101,7 +103,7 @@ export default function UserList() {
                         Nuevo usuario
                         {
                             !flag ?
-                                <div className="w-[178px] flex justify-start flex-col absolute top-11 left-0 bg-primaryColor shadow-xl rounded-xl gap-4 text-white p-4 ">
+                                <div className="w-[178px] flex justify-start flex-col absolute top-11 left-0 bg-primaryColor z-10 shadow-xl rounded-xl gap-4 text-white p-4 ">
                                     <Link to={'/perfil/usuarios/nuevo/pas'}><a>Paseador</a></Link>
                                     <Link to={'/perfil/usuarios/nuevo'}><a>Duenio</a></Link>
                                 </div>
@@ -111,19 +113,19 @@ export default function UserList() {
                     </button>
                 </div>
             </div>
-            <table className='min-w-full  text-base font-light text-surface '>
+            <table className='min-w-full  text-base font-light text-surface bg-gray p-8 rounded-xl'>
                 <thead className=" border-b border-[#ced4da] ">
                     <tr>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Nombre</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Role</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">ID numero</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Telefono</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Direccion</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Registrado</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Acciones</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Nombre</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Role</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">ID numero</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Telefono</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Direccion</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Registrado</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="font-medium">
                     {
                         data?.map((user, i) => {
                             return (

@@ -27,11 +27,28 @@ export default function Booking({ idWalker, nameWalker }) {
 
     console.log(idWalker);
     console.log(booking.dateWalk);
+    console.log(profile.role);
 
     const createWalk = async () => {
 
-        let endPonit = params.id ? `walk/${params.id}` : 'walks';
-        let method = params.id ? api.put : api.post;
+        // let endPonit = params.id ? `walk/${params.id}` : 'walks';
+        // let method = params.id ? api.put : api.post;
+
+        let endPonit;
+        let method;
+
+        if (params.id && profile.role === "Duenio") {
+            endPonit = 'walks';
+            method = api.post;
+        }
+
+        if (params.id && profile.role === "Administrador") {
+            endPonit = `walk/${params.id}`;
+            method = api.put;
+        } else {
+            endPonit = 'walks'
+            method = api.post;
+        }
 
         try {
             let response = await method(endPonit, booking)

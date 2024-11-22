@@ -54,18 +54,18 @@ export default function PetsList() {
                     <Link to={'/perfil/mascotas/nuevo'}><button className='bg-primaryColor py-2 px-4 rounded-xl text-white'>Nueva mascota</button></Link>
                 </div>
             </div>
-            <table className='min-w-full  text-base font-light text-surface '>
+            <table className='min-w-full  text-base font-light text-surface bg-gray rounded-xl'>
                 <thead className=" border-b border-[#ced4da] ">
                     <tr>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Nombre</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Edad</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Raza</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Raza</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Duenio</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold text-gray-500 uppercase">Acciones</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Nombre</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Edad</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Raza</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Raza</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Duenio</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='font-medium'>
                     {
                         data?.map((pet, i) => {
                             return (

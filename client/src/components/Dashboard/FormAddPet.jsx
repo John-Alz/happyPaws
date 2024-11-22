@@ -97,7 +97,12 @@ export default function FormAddPet() {
 
 
     return (
-        <div>
+        <div className='flex flex-col mt-20'>
+            <div className='mb-4'>
+                {
+                    params.id ? <h2 className='text-4xl font-bold'>Editas a la mascota {input.petName}</h2> : <h2 className='text-4xl font-bold'>Crea una mascota</h2>
+                }
+            </div>
             <form className='bg-gray p-8 rounded-xl'>
                 <div className='flex gap-4'>
                     <div className='w-4/12 flex flex-col mb-2'>
