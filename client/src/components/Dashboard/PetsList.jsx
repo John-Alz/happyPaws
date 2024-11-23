@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { api } from '../../services/apiServices';
 import { setPets } from '../../redux/petsSlice';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function PetsList() {
 
@@ -31,6 +33,12 @@ export default function PetsList() {
         try {
             let response = await api.delete(`pet/${idDelete}`);
             console.log(response);
+            if (response.status === 200) {
+                toast.success('Mascota eliminada correctamente')
+                getPets();
+            } else {
+                toast.error("Hubo un error")
+            }
         } catch (error) {
             console.error
         }
@@ -45,6 +53,7 @@ export default function PetsList() {
 
     return (
         <div className='w-11/12 m-auto'>
+            <ToastContainer />
             <div className='flex items-center justify-between'>
                 <div className='mb-12 mt-12'>
                     <h2 className='text-2xl font-semibold'>Lista de mascotas</h2>
@@ -60,21 +69,21 @@ export default function PetsList() {
                         <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Nombre</th>
                         <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Edad</th>
                         <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Raza</th>
-                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Raza</th>
+                        <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Genero</th>
                         <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Duenio</th>
                         <th className="px-6 py-3 text-start text-sm font-bold opacity-50 uppercase">Acciones</th>
                     </tr>
                 </thead>
                 <tbody className='font-medium'>
                     {
-                        data?.map((pet, i) => {
+                        data ? data.map((pet, i) => {
                             return (
                                 <tr className='hover:bg-grayDark border-b border-[#ced4da]'>
                                     <td className="px-6 py-4 text-sm">{pet.petName}</td>
-                                    <td className="px-6 py-4 text-sm">{pet.petAge}</td>
+                                    <td className="px-6 py-4 text-sm">{pet.petAge} Años</td>
                                     <td className="px-6 py-4 text-sm">{pet.petBreed}</td>
                                     <td className="px-6 py-4 text-sm">{pet.petGender}</td>
-                                    <td className="px-6 py-4 text-sm">{pet.owner.name}</td>
+                                    <td className="px-6 py-4 text-sm">{pet.owner?.name}</td>
                                     <td className='px-4 py-2 text-sm'>
                                         <div className='flex items-center gap-4'>
                                             <Link to={`/perfil/mascotas/edit/${pet._id}`} ><MdEdit color="green" size={24} /></Link>
@@ -83,7 +92,7 @@ export default function PetsList() {
                                     </td>
                                 </tr>
                             )
-                        })
+                        }) : null
                     }
 
                 </tbody>

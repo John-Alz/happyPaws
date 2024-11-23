@@ -13,6 +13,7 @@ export default function FormInfoAdmin() {
 
     const [formData, setFormData] = useState({
         name: profile?.name || '',
+        lastName: profile?.lastName || '',
         photo: profile?.photo || '',
         email: profile?.email || '',
         idType: profile?.adminInfo.idType || '',
@@ -22,6 +23,7 @@ export default function FormInfoAdmin() {
 
     const admin = {
         name: formData.name,
+        lastName: formData.lastName,
         photo: formData.photo,
         email: formData.email,
         password: profile.password,
@@ -80,6 +82,12 @@ export default function FormInfoAdmin() {
                         <div className='w-3/6 flex flex-col '>
                             <label className='font-semibold text-lg'>Nombre</label>
                             <input value={formData.name} onChange={handleChange} type='text' name='name' placeholder='Escribe tu nombre...'
+                                className=' py-2 px-4  text-lg placeholder:text rounded-xl'
+                            />
+                        </div>
+                        <div className='w-3/6 flex flex-col '>
+                            <label className='font-semibold text-lg'>Nombre</label>
+                            <input value={formData.lastName} onChange={handleChange} type='text' name='lastName' placeholder='Escribe tu nombre...'
                                 className=' py-2 px-4  text-lg placeholder:text rounded-xl'
                             />
                         </div>

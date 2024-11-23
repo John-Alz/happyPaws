@@ -19,6 +19,7 @@ export default function UserList() {
 
     const dispatch = useDispatch();
 
+
     const data = useSelector(state => state.users.users);
 
     const getUsers = async (role) => {
@@ -65,8 +66,11 @@ export default function UserList() {
 
         try {
             let response = await api.delete(`user/${idDelete}`)
+            console.log(response);
+
             if (response.status === 200) {
                 toast.success("Se elemino el usuario")
+                getUsers(role);
             } else {
                 toast.error("Hubo un error")
             }
@@ -78,7 +82,7 @@ export default function UserList() {
 
     useEffect(() => {
         getUsers(role)
-    }, [deleteUser, role])
+    }, [role])
 
 
     return (

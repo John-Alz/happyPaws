@@ -30,7 +30,8 @@ export default function WalksList() {
         try {
             let response = await api.delete(`walk/${idDelete}`)
             if (response.status === 200) {
-                toast.success('Paseo eliminado correctame')
+                toast.success('Paseo eliminado correctamente')
+                getWalks();
             } else {
                 toast.error("Hubo un error")
             }
@@ -76,7 +77,7 @@ export default function WalksList() {
                                     <td className="px-6 py-4 text-sm">
                                         <div className='flex items-center gap-4'>
                                             <img className='w-14 h-14 rounded-full' src={walk?.walker?.photo} />
-                                            <p className='font-semibold'>{walk.walker.name}</p>
+                                            <p className='font-semibold'>{walk.walker?.name}</p>
                                         </div>
                                     </td>
                                     <td className="px-6 py-4 text-sm">{walk?.pet?.petName}</td>

@@ -49,7 +49,7 @@ export const api = {
     delete: async (endPonit) => {
         try {
             let response = await apiClient.delete(endPonit);
-            return response.data;
+            return response;
         } catch (error) {
             console.log(`Error en la petiicon DELETE: ${error}`);
             throw error;

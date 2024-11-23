@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import RegisterOwner from '../auth/RegisterOwner'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { api } from '../../services/apiServices';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSingleUser } from '../../redux/usersSlice';
@@ -9,6 +9,7 @@ export default function FormInfoOwner() {
 
     const params = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const user = useSelector(state => state.users.singleUser)
 
@@ -94,6 +95,7 @@ export default function FormInfoOwner() {
     const handleSubmit = (e) => {
         e.preventDefault();
         actionOwner()
+        navigate('/perfil/usuarios')
     }
 
     console.log(input);
@@ -152,14 +154,14 @@ export default function FormInfoOwner() {
                             </div>
                             <div className='w-3/6 flex flex-col gap-2'>
                                 <label className='font-semibold'>Email</label>
-                                <input onChange={handleChange} type='text' value={input.email} name='email' placeholder='Escribe tu email...'
+                                <input onChange={handleChange} type='email' value={input.email} name='email' placeholder='Escribe tu email...'
                                     className='py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             {
                                 !params.id ? <div className='w-3/6 flex flex-col gap-2'>
                                     <label className='font-semibold'>Contrasena</label>
-                                    <input onChange={handleChange} type='text' name='password' placeholder='Escribe tu contrasena...'
+                                    <input onChange={handleChange} type='password' name='password' placeholder='Escribe tu contrasena...'
                                         className='py-2 px-4 placeholder:text rounded-xl'
                                     />
                                 </div> : null

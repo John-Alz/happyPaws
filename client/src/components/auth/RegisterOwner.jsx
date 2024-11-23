@@ -103,13 +103,13 @@ export default function RegisterOwner() {
                     <div className=' flex gap-4'>
                         <div className='w-3/6 flex flex-col gap-2'>
                             <label className='font-semibold'>Email</label>
-                            <input onChange={handleChange} type='text' name='email' placeholder='Escribe tu email...'
+                            <input onChange={handleChange} type='email' name='email' placeholder='Escribe tu email...'
                                 className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>
                         <div className='flex w-3/6  flex-col gap-2'>
                             <label className='font-semibold'>Contrasena</label>
-                            <input onChange={handleChange} type='text' name='password' placeholder='Escribe tu contrasena...'
+                            <input onChange={handleChange} type='password' name='password' placeholder='Escribe tu contrasena...'
                                 className=' py-2 px-4 placeholder:text rounded-xl'
                             />
                         </div>

@@ -85,7 +85,8 @@ export default function RegisterWalker() {
                                 <select onChange={handleChange} name='idType' className=' py-2 px-4 placeholder:text rounded-xl'>
                                     <option selected disabled>Selecciona un tipo de documento</option>
                                     <option>CC</option>
-                                    <option>TI</option>
+                                    <option>CE</option>
+                                    <option>Pasaporte</option>
                                 </select>
                             </div>
                             <div className='flex flex-col gap-2'>
@@ -107,7 +108,7 @@ export default function RegisterWalker() {
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Email</label>
-                                <input onChange={handleChange} type='text' name='email' placeholder='Escribe tu email...'
+                                <input onChange={handleChange} type='email' name='email' placeholder='Escribe tu email...'
                                     className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
@@ -153,7 +154,7 @@ export default function RegisterWalker() {
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Contrasena</label>
-                                <input onChange={handleChange} type='text' name='password' placeholder='Escribe tu contrasena...'
+                                <input onChange={handleChange} type='password' name='password' placeholder='Escribe tu contrasena...'
                                     className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>

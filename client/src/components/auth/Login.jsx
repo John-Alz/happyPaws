@@ -55,7 +55,7 @@ export default function Login() {
                     </div>
                     <div className='flex flex-col '>
                         <label className='font-semibold'>Contrasena</label>
-                        <input onChange={handleChange} type='text' name='password' placeholder='Escribe tu contrasena...'
+                        <input onChange={handleChange} type='password' name='password' placeholder='Escribe tu contrasena...'
                             className=' py-2 px-4 placeholder:text rounded-xl'
                         />
                     </div>

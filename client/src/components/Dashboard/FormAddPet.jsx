@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { api } from '../../services/apiServices'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOwners } from '../../redux/usersSlice';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { setPet } from '../../redux/petsSlice';
 
 export default function FormAddPet() {
 
     const dispatch = useDispatch();
     const params = useParams();
+    const navigate = useNavigate();
     const owners = useSelector(state => state.users.owners)
     const pet = useSelector(state => state.pets.pet)
 
@@ -91,6 +92,7 @@ export default function FormAddPet() {
             petRecomendations: '',
             owner: '',
         })
+        navigate('/perfil/mascotas')
     }
 
     console.log(pet);
