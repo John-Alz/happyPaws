@@ -146,7 +146,7 @@ export default function UserList() {
                                     <td className="px-6 py-4 text-sm">{user.role}</td>
                                     <td className="px-6 py-4 text-sm">{user.adminInfo ? user.adminInfo.idNumber : null || user.paseadorInfo ? user.paseadorInfo.idNumber : null || user.duenioInfo ? user.duenioInfo.idNumber : null}</td>
                                     <td className="px-6 py-4 text-sm">{user.adminInfo ? user.adminInfo.contactPhone : null || user.paseadorInfo ? user.paseadorInfo.contactPhone : null || user.duenioInfo ? user.duenioInfo.contactPhone : null}</td>
-                                    <td className="px-6 py-4 text-sm">{user.adminInfo ? user.role : null || user.paseadorInfo ? user.paseadorInfo.companyAddress : null || user.duenioInfo ? user.duenioInfo.adressOwner : null}</td>
+                                    <td className="px-6 py-4 text-sm">{user.adminInfo ? user.role : null || user.paseadorInfo ? user.paseadorInfo.walkerAddress : null || user.duenioInfo ? user.duenioInfo.adressOwner : null}</td>
                                     <td className="px-6 py-4 text-sm">{user.createdAt.slice(0, 10)}</td>
                                     <td className="px-6 py-4 text-sm">
                                         <div className='flex justify-center items-center gap-4'>

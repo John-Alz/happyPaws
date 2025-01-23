@@ -20,9 +20,14 @@ import PetsList from "./components/Dashboard/PetsList"
 import FormAddPet from "./components/Dashboard/FormAddPet"
 import AddPet from "./pages/AddPet"
 import Contact from "./pages/Contact"
+import FormEditOwner from "./components/Dashboard/FormEditOwner"
+import { useSelector } from "react-redux"
+import FormEditWalker from "./components/Dashboard/FormEditWalker"
 
 function App() {
 
+
+  const profile = useSelector(state => state.users.profile)
 
   return (
     <>
@@ -42,7 +47,11 @@ function App() {
 
           {/* Admin */}
           <Route path="/perfil" element={<AdminLayout />}>
-            <Route path="info" element={<FormInfoAdmin />} />
+            {
+              profile.role === 'Administrador' ? <Route path="info" element={<FormInfoAdmin />} /> : profile.role === 'Paseador' ? <Route path="info" element={<FormEditOwner />} /> : <Route path="info" element={<FormEditWalker />} />
+
+            }
+
             {/* <Route path="info" element={<FormInfoOwner />} /> */}
             <Route path="usuarios" element={<Users />} />
             <Route path="usuario/owner/:id" element={<FormInfoOwner />} />

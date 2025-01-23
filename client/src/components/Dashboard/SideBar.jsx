@@ -2,9 +2,13 @@ import logo from '../../assets/logo.png'
 import { MdOutlinePets, MdFavorite, MdInfo, MdLogout } from "react-icons/md";
 import { FaUser, FaUsers, FaWalking } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 
 export default function SideBar() {
+
+    let profile = useSelector(state => state.users.profile);
+    console.log(profile);
 
 
     return (
@@ -23,12 +27,15 @@ export default function SideBar() {
                             <a>informacion</a>
                         </div>
                     </NavLink>
-                    <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/usuarios'}>
-                        <div className=' text-black py-2 px-4 flex items-center gap-2'>
-                            <FaUsers size={18} />
-                            <a>Usuarios</a>
-                        </div>
-                    </NavLink>
+                    {
+                        profile.role === 'Administrador' ? <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/usuarios'}>
+                            <div className=' text-black py-2 px-4 flex items-center gap-2'>
+                                <FaUsers size={18} />
+                                <a>Usuarios</a>
+                            </div>
+                        </NavLink> : null
+                    }
+
                     <NavLink className={({ isActive }) => (isActive ? 'border-r-2 border-primaryColor' : 'opacity-60')} to={'/perfil/paseos'}>
                         <div className=' text-black py-2 px-4 flex items-center gap-2'>
                             <FaWalking size={18} />

@@ -24,8 +24,7 @@ export default function FormInfoWalker() {
         idType: '',
         idNumber: '',
         contactPhone: '',
-        companyPhone: '',
-        companyAddress: '',
+        walkerAddress: '',
         walkerPhoto: '',
         hourlyRate: ''
     })
@@ -46,8 +45,7 @@ export default function FormInfoWalker() {
             idType: input.idType,
             idNumber: input.idNumber,
             contactPhone: input.contactPhone,
-            companyPhone: input.companyPhone,
-            companyAddress: input.companyAddress,
+            walkerAddress: input.walkerAddress,
             hourlyRate: input.hourlyRate
         },
     }
@@ -81,9 +79,8 @@ export default function FormInfoWalker() {
                         experience: response?.paseadorInfo?.experience || 0,
                         idType: response?.paseadorInfo?.idType || '',
                         idNumber: response?.paseadorInfo?.idNumber || '',
-                        contactPhone: response?.paseadorInfo?.companyPhone || '',
-                        companyPhone: response?.paseadorInfo?.companyPhone || '',
-                        companyAddress: response?.paseadorInfo?.companyAddress || '',
+                        contactPhone: response?.paseadorInfo?.contactPhone || '',
+                        walkerAddress: response?.paseadorInfo?.walkerAddress || '',
                         hourlyRate: response?.paseadorInfo?.hourlyRate || 0
                     })
                 } catch (error) {
@@ -152,15 +149,9 @@ export default function FormInfoWalker() {
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
-                                <label className='font-semibold'>Numero de contacto empresa</label>
-                                <input onChange={handleChange} type='text' value={input.companyPhone} name='companyPhone' placeholder='Escribe tu numero de contacto tu empresa...'
-                                    className=' py-2 px-4 placeholder:text rounded-xl'
-                                />
-                            </div>
-                            <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Description</label>
                                 <textarea onChange={handleChange} type='text' value={input.description} name='description' placeholder='Escribe tu descripcion...'
-                                    className=' py-2 px-4 placeholder:text rounded-xl h-[120px]' />
+                                    className=' py-2 px-4 placeholder:text rounded-xl h-[200px]' />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Email</label>
@@ -191,14 +182,14 @@ export default function FormInfoWalker() {
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
-                                <label className='font-semibold'>Direccion de tu empresa</label>
-                                <input onChange={handleChange} type='text' value={input.companyAddress} name='companyAddress' placeholder='Escribe tu numero de contacto...'
+                                <label className='font-semibold'>Direccion</label>
+                                <input onChange={handleChange} type='text' value={input.walkerAddress} name='walkerAddress' placeholder='Escribe tu direccion...'
                                     className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <label className='font-semibold'>Tarifa por hora</label>
-                                <input onChange={handleChange} type='number' value={input.hourlyRate} name='hourlyRate' placeholder='Escribe tu numero de contacto...'
+                                <input onChange={handleChange} type='number' value={input.hourlyRate} name='hourlyRate' placeholder='Escribe tu tarifa por hora...'
                                     className=' py-2 px-4 placeholder:text rounded-xl'
                                 />
                             </div>

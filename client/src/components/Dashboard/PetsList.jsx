@@ -12,6 +12,7 @@ export default function PetsList() {
     const data = useSelector(state => state.pets.pets)
     console.log(data);
 
+
     const dispatch = useDispatch();
 
     // funciones crud
@@ -78,7 +79,7 @@ export default function PetsList() {
                     {
                         data ? data.map((pet, i) => {
                             return (
-                                <tr className='hover:bg-grayDark border-b border-[#ced4da]'>
+                                <tr key={i} className='hover:bg-grayDark border-b border-[#ced4da]'>
                                     <td className="px-6 py-4 text-sm">{pet.petName}</td>
                                     <td className="px-6 py-4 text-sm">{pet.petAge} Años</td>
                                     <td className="px-6 py-4 text-sm">{pet.petBreed}</td>

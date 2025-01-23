@@ -58,7 +58,7 @@ export default function Header() {
                             {
                                 sizeProfile > 0 ? <button className='hover:text-primaryColor' onClick={handleSubmit}>Cerrar sesion</button> : null
                             }
-                            <Link to={'/perfil'}><p className='hover:text-primaryColor'>Perfil</p></Link>
+                            <Link to={'/perfil/info'}><p className='hover:text-primaryColor'>Perfil</p></Link>
                         </div> : null
                     }
                 </button> : <Link to={'/login'}><button className='text-lg font-semobold bg-black hover:bg-primaryColor ease-in duration-200 rounded-xl py-2 px-4 text-white decoration-none'>Iniciar sesion</button></Link>

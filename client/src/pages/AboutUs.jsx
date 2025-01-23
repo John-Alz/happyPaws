@@ -63,7 +63,7 @@ export default function AboutUs() {
                     </div>
 
                     <div>
-                        <h2 className='text-center text-3xl font-semibold mb-8 mt-20'>Nuestro equipo</h2>
+                        <h2 className='text-center text-3xl font-semibold mb-8 mt-20'>Nuestros colaboradores</h2>
                         <div className=' m-auto flex gap-6 '>
                             {
                                 team.map((walker, i) => {
